@@ -69,7 +69,7 @@ where `a` is the minimum support and `b` the maximum support of the distribution
 ## Usage
 
 ```javascript
-import skewness from 'https://cdn.jsdelivr.net/gh/stdlib-js/stats-base-dists-uniform-skewness@deno/mod.js';
+import skewness from 'https://cdn.jsdelivr.net/gh/stdlib-js/stats-base-dists-uniform-skewness@v0.2.2-deno/mod.js';
 ```
 
 #### skewness( a, b )
@@ -129,7 +129,7 @@ y = skewness( 3.0, 3.0 );
 
 ```javascript
 import randu from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-base-randu@deno/mod.js';
-import skewness from 'https://cdn.jsdelivr.net/gh/stdlib-js/stats-base-dists-uniform-skewness@deno/mod.js';
+import skewness from 'https://cdn.jsdelivr.net/gh/stdlib-js/stats-base-dists-uniform-skewness@v0.2.2-deno/mod.js';
 
 var a;
 var b;
