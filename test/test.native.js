@@ -1,7 +1,7 @@
 /**
 * @license Apache-2.0
 *
-* Copyright (c) 2018 The Stdlib Authors.
+* Copyright (c) 2025 The Stdlib Authors.
 *
 * Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
@@ -20,24 +20,34 @@
 
 // MODULES //
 
+var resolve = require( 'path' ).resolve;
 var tape = require( 'tape' );
+var tryRequire = require( '@stdlib/utils-try-require' );
 var isnan = require( '@stdlib/math-base-assert-is-nan' );
-var randu = require( '@stdlib/random-base-randu' );
 var PINF = require( '@stdlib/constants-float64-pinf' );
 var NINF = require( '@stdlib/constants-float64-ninf' );
-var skewness = require( './../lib' );
+
+
+// VARIABLES //
+
+var skewness = tryRequire( resolve( __dirname, './../lib/native.js' ) );
+var opts = {
+	'skip': ( skewness instanceof Error )
+};
 
 
 // TESTS //
 
-tape( 'main export is a function', function test( t ) {
+tape( 'main export is a function', opts, function test( t ) {
 	t.ok( true, __filename );
 	t.strictEqual( typeof skewness, 'function', 'main export is a function' );
 	t.end();
 });
 
-tape( 'if provided `NaN` for any parameter, the function returns `NaN`', function test( t ) {
-	var v = skewness( NaN, 0.5 );
+tape( 'if provided `NaN` for any parameter, the function returns `NaN`', opts, function test( t ) {
+	var v;
+
+	v = skewness( NaN, 0.5 );
 	t.strictEqual( isnan( v ), true, 'returns expected value' );
 
 	v = skewness( 10.0, NaN );
@@ -46,7 +56,7 @@ tape( 'if provided `NaN` for any parameter, the function returns `NaN`', functio
 	t.end();
 });
 
-tape( 'if provided `a >= b`, the function returns `NaN`', function test( t ) {
+tape( 'if provided `a >= b`, the function returns `NaN`', opts, function test( t ) {
 	var y;
 
 	y = skewness( 3.0, 2.0 );
@@ -64,17 +74,17 @@ tape( 'if provided `a >= b`, the function returns `NaN`', function test( t ) {
 	t.end();
 });
 
-tape( 'the function returns `0.0` as the skewness of a uniform distribution ', function test( t ) {
-	var a;
-	var b;
-	var i;
-	var v;
+tape( 'the function returns the skewness of a uniform distribution', opts, function test( t ) {
+	var y;
 
-	for ( i = 0; i < 10; i++ ) {
-		a = ( randu()*10.0 );
-		b = ( randu()*10.0 ) + a;
-		v = skewness( a, b );
-		t.strictEqual( v, 0.0, 'returns expected value' );
-	}
+	y = skewness( 0.0, 1.0 );
+	t.strictEqual( y, 0.0, 'returns expected value' );
+
+	y = skewness( 4.0, 12.0 );
+	t.strictEqual( y, 0.0, 'returns expected value' );
+
+	y = skewness( -4.0, 4.0 );
+	t.strictEqual( y, 0.0, 'returns expected value' );
+
 	t.end();
 });

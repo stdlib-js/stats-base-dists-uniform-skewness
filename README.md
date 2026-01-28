@@ -166,6 +166,101 @@ for ( i = 0; i < 10; i++ ) {
 
 <!-- /.examples -->
 
+<!-- C interface documentation. -->
+
+* * *
+
+<section class="c">
+
+## C APIs
+
+<!-- Section to include introductory text. Make sure to keep an empty line after the intro `section` element and another before the `/section` close. -->
+
+<section class="intro">
+
+</section>
+
+<!-- /.intro -->
+
+<!-- C usage documentation. -->
+
+<section class="usage">
+
+### Usage
+
+```c
+#include "stdlib/stats/base/dists/uniform/skewness.h"
+```
+
+#### stdlib_base_dists_uniform_skewness( a, b )
+
+Returns the [skewness][skewness] of a [uniform][uniform-distribution] distribution with parameters `a` (minimum support) and `b` (maximum support).
+
+```c
+double out = stdlib_base_dists_uniform_skewness( 0.0, 1.0 );
+// returns 0.0
+```
+
+The function accepts the following arguments:
+
+-   **a**: `[in] double` minimum support.
+-   **b**: `[in] double` maximum support.
+
+```c
+double stdlib_base_dists_uniform_skewness( const double a, const double b );
+```
+
+</section>
+
+<!-- /.usage -->
+
+<!-- C API usage notes. Make sure to keep an empty line after the `section` element and another before the `/section` close. -->
+
+<section class="notes">
+
+</section>
+
+<!-- /.notes -->
+
+<!-- C API usage examples. -->
+
+<section class="examples">
+
+### Examples
+
+```c
+#include "stdlib/stats/base/dists/uniform/skewness.h"
+#include <stdlib.h>
+#include <stdio.h>
+
+static double random_uniform( const double min, const double max ) {
+    double v = (double)rand() / ( (double)RAND_MAX + 1.0 );
+    return min + ( v*(max-min) );
+}
+
+int main( void ) {
+    double a;
+    double b;
+    double y;
+    int i;
+
+    for ( i = 0; i < 25; i++ ) {
+        a = random_uniform( 0.0, 10.0 );
+        b = random_uniform( a, 20.0 );
+        y = stdlib_base_dists_uniform_skewness( a, b );
+        printf( "a: %lf, b: %lf, skew(X;a,b): %lf\n", a, b, y );
+    }
+}
+```
+
+</section>
+
+<!-- /.examples -->
+
+</section>
+
+<!-- /.c -->
+
 <!-- Section to include cited references. If references are included, add a horizontal rule *before* the section. Make sure to keep an empty line after the `section` element and another before the `/section` close. -->
 
 <section class="references">
@@ -208,7 +303,7 @@ See [LICENSE][stdlib-license].
 
 ## Copyright
 
-Copyright &copy; 2016-2025. The Stdlib [Authors][stdlib-authors].
+Copyright &copy; 2016-2026. The Stdlib [Authors][stdlib-authors].
 
 </section>
 
@@ -221,8 +316,8 @@ Copyright &copy; 2016-2025. The Stdlib [Authors][stdlib-authors].
 [npm-image]: http://img.shields.io/npm/v/@stdlib/stats-base-dists-uniform-skewness.svg
 [npm-url]: https://npmjs.org/package/@stdlib/stats-base-dists-uniform-skewness
 
-[test-image]: https://github.com/stdlib-js/stats-base-dists-uniform-skewness/actions/workflows/test.yml/badge.svg?branch=main
-[test-url]: https://github.com/stdlib-js/stats-base-dists-uniform-skewness/actions/workflows/test.yml?query=branch:main
+[test-image]: https://github.com/stdlib-js/stats-base-dists-uniform-skewness/actions/workflows/test.yml/badge.svg?branch=v0.3.0
+[test-url]: https://github.com/stdlib-js/stats-base-dists-uniform-skewness/actions/workflows/test.yml?query=branch:v0.3.0
 
 [coverage-image]: https://img.shields.io/codecov/c/github/stdlib-js/stats-base-dists-uniform-skewness/main.svg
 [coverage-url]: https://codecov.io/github/stdlib-js/stats-base-dists-uniform-skewness?branch=main
@@ -234,8 +329,8 @@ Copyright &copy; 2016-2025. The Stdlib [Authors][stdlib-authors].
 
 -->
 
-[chat-image]: https://img.shields.io/gitter/room/stdlib-js/stdlib.svg
-[chat-url]: https://app.gitter.im/#/room/#stdlib-js_stdlib:gitter.im
+[chat-image]: https://img.shields.io/badge/zulip-join_chat-brightgreen.svg
+[chat-url]: https://stdlib.zulipchat.com
 
 [stdlib]: https://github.com/stdlib-js/stdlib
 

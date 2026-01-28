@@ -2,9 +2,19 @@
 
 > Package changelog.
 
-<section class="release" id="unreleased">
+<section class="release" id="v0.3.0">
 
-## Unreleased (2025-05-12)
+## 0.3.0 (2026-01-28)
+
+<section class="features">
+
+### Features
+
+-   [`c5f6c77`](https://github.com/stdlib-js/stdlib/commit/c5f6c77e86a0b8dde6d85a40135e2a1d46742797) - add C implementation for `stats/base/dists/uniform/skewness`
+
+</section>
+
+<!-- /.features -->
 
 <section class="issues">
 
@@ -24,7 +34,10 @@ This release closes the following issue:
 
 <details>
 
--   [`273d9f1`](https://github.com/stdlib-js/stdlib/commit/273d9f168ed5293a563e6748219f79a033e7ca8a) - **bench:** refactor random number generation in benchmarks for `stats/base/dists/uniform` [(#5176)](https://github.com/stdlib-js/stdlib/pull/5176) _(by Gaurav, Philipp Burckhardt, stdlib-bot)_
+-   [`fc438e0`](https://github.com/stdlib-js/stdlib/commit/fc438e0edbad0689d6923d6f3edb959b96597662) - **test:** use standardized assertion messages and fix lint errors _(by Philipp Burckhardt)_
+-   [`9c21fd2`](https://github.com/stdlib-js/stdlib/commit/9c21fd20ef8b8a6a88abb96d80ea6d8e4c5434eb) - **test:** use .strictEqual() instead of .equal() _(by Philipp Burckhardt)_
+-   [`c5f6c77`](https://github.com/stdlib-js/stdlib/commit/c5f6c77e86a0b8dde6d85a40135e2a1d46742797) - **feat:** add C implementation for `stats/base/dists/uniform/skewness` _(by Philipp Burckhardt)_
+-   [`273d9f1`](https://github.com/stdlib-js/stdlib/commit/273d9f168ed5293a563e6748219f79a033e7ca8a) - **bench:** refactor random number generation in benchmarks for `stats/base/dists/uniform` [(#5176)](https://github.com/stdlib-js/stdlib/pull/5176) _(by Gaurav Jadhav, Philipp Burckhardt, stdlib-bot)_
 
 </details>
 
@@ -38,7 +51,7 @@ This release closes the following issue:
 
 A total of 2 people contributed to this release. Thank you to the following contributors:
 
--   Gaurav
+-   Gaurav Jadhav
 -   Philipp Burckhardt
 
 </section>
